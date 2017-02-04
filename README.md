@@ -63,15 +63,15 @@ The parameters used in the transformations are stored in:
 # Usage
 
 ## Lookup the first epoch for a given reference frame
-GET http://localhost/gnss-conversion-tools/api/default-start-epoch-for.php?reference_frame=IGS97
+    GET http://localhost/gnss-conversion-tools/api/default-start-epoch-for.php?reference_frame=IGS97
 
 ## List reference frames
-GET http://localhost/gnss-conversion-tools/api/list-reference-frames.php
+    GET http://localhost/gnss-conversion-tools/api/list-reference-frames.php
 
 ## GPS dates conversion
-POST http://localhost/gnss-conversion-tools/api/gps-date-converter.php
+    POST http://localhost/gnss-conversion-tools/api/gps-date-converter.php
 
-    POST data:
+POST data:
         date -->  any of the following formats:
                      MJD format
                      GSPTime
@@ -108,7 +108,7 @@ The tool calculates as output:
   - the resulting Earth-Centered Earth-Fixed Ellipsoidal coordinates in the chosen reference frame
 
 Example:
-POST http://localhost/gnss-conversion-tools/api/gnss-coordinates-transformation.php
+    POST http://localhost/gnss-conversion-tools/api/gnss-coordinates-transformation.php
 
 POST data:
 
