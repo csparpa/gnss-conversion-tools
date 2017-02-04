@@ -1,0 +1,347 @@
+<a name="top"></a>
+<h1>Transformation formulas</h1>
+<p>
+These transformations are also known, in GNSS world, as Helmert transformations
+or seven parameters transformations. Seven parameters are needed: three rotation angles, 
+three coordinates of the translation  and a scale factor. 
+The rotation angles and the scale factor are treated as infinitesimals, so the 
+implemented formula must be considered right at the first order.
+The transformation, according to <a href="ftp://lareg.ensg.ign.fr/pub/itrf/ITRF.TP" target="_blank">ITRF</a>,
+and also <a href="http://etrs89.ensg.ign.fr/memo-V8.pdf" target="_blank">EUREF</a>, reads:
+<pre>
+      | X_end |        |  1 + k   -R_Z    R_Y   | | X_start |       | T_X |
+      |       |        |                        | |         |       |     |
+      | Y_end |   =    |   R_Z    1 + k  -R_X   | | Y_start |   +   | T_Y |
+      |       |        |                        | |         |       |     |
+      | Z_end |        |  -R_Y     R_X   1 + k  | | Z_start |       | T_Z |
+</pre>
+where:
+<ul>
+<li><code>k</code> is the scale factor;</li> 
+<li><code>R_X(Y,Z)</code> is the rotation angle around X(Y,Z)-axis;</li> 
+<li><code>T_X(Y,Z)</code> is the traslation along the X(Y,Z)-axis</li>
+</ul>
+Velocity on cartesian coordinates <code>V</code> are needed to transform the parameter <code>P</code> from the starting epoch <code>t_1</code> to the final epoch <code>t_2</code> according to the formula:
+<pre>
+      P(t_2) = P(t_1) + V * (t_2 - t_1)
+</pre>
+where <code>P</code> can be <code>X</code>, <code>Y</code> or <code>Z</code> and <code>V</code> the corresponding velocity.
+</p>
+<h1>Transformation parameters tables</h1>
+<h2>Index</h2>
+<ul style="list-style: none;">
+<li><a href="#1">Transformation from ITRF00 [ITRF2000] TO PREVIOUS ITRF FRAMES</a></li>
+<li><a href="#2">Transformation from IGS97 [IGS(ITRF97)] to IGS00 [IGS(ITRF2000) o IGS2000 v1]</a></li>
+<li><a href="#3">Transformation from IGS05 to ITRF05</a></li>
+<li><a href="#4">Transformation from ITRF2005 to ITRF2000</a></li>
+<li><a href="#5">Transformation from IGS05 to IGb00 (IGS2000 v2)</a></li>
+<li><a href="#6">Transformation from IGb00 (IGS2000 v2) to IGS00 (IGS2000 v1)</a></li>
+<li><a href="#7">Transformation from IGS05 to IGS08</a></li>
+<li><a href="#8">Transformation from IGS08 to IGb08</a></li>
+</ul>
+<a name="1"></a>
+<h2>Transformation from ITRF00 [ITRF2000] TO PREVIOUS ITRF FRAMES</h2>
+<h3>[ITRF97-ITRF00]</h3>
+<i>Last update: 2013-04-18</i>
+<ul>
+<li>epoch: 1997.0</li>
+<li>Reference: Table 4.1 of Chapter 4 of IERS Conventions(2003), <a href="http://www.iers.org/nn_11216/IERS/EN/Publications/TechnicalNotes/tn32.html" target="_blank">Technical Note 32</a></li>
+<li>Parameters:</li>
+</ul>
+<div style="position: relative; left: 40px;">
+<pre>
+         TX     TY     TZ     RX        RY        RZ         D
+         mm     mm     mm     mas       mas       mas        ppb
+Offset   6.7    6.1  -18.5    0.0       0.0       0.0        1.55     
+----------------------------------------------------------------------
+        dTX    dTY    dTZ    dRX       dRY       dRZ        dD
+         mm/y   mm/y   mm/y   mas/y     mas/y     mas/y      ppb/y
+Drift    0.0   -0.6   -1.4    0.0       0.0       0.02       0.01     
+</pre>
+</div>
+<h3>[ITRF96-ITRF00]</h3>
+<i>Last update: 2013-04-18</i>
+<ul>
+<li>epoch: 1997.0</li>
+<li>Reference: Table 4.1 of Chapter 4 of IERS Conventions(2003), <a href="http://www.iers.org/nn_11216/IERS/EN/Publications/TechnicalNotes/tn32.html" target="_blank">Technical Note 32</a></li>
+<li>Parameters:</li>
+</ul>
+<div style="position: relative; left: 40px;">
+<pre>
+         TX     TY     TZ     RX        RY        RZ         D
+         mm     mm     mm     mas       mas       mas        ppb
+Offset   6.7    6.1  -18.5    0.0       0.0       0.0        1.55     
+----------------------------------------------------------------------
+        dTX    dTY    dTZ    dRX       dRY       dRZ        dD
+         mm/y   mm/y   mm/y   mas/y     mas/y     mas/y      ppb/y
+Drift    0.0   -0.6   -1.4    0.0       0.0       0.02        0.01    
+</pre>
+</div>
+<h3>[ITRF94-ITRF00]</h3>
+<i>Last update: 2013-04-18</i>
+<ul>
+<li>epoch: 1997.0</li>
+<li>Reference: Table 4.1 of Chapter 4 of IERS Conventions(2003), <a href="http://www.iers.org/nn_11216/IERS/EN/Publications/TechnicalNotes/tn32.html" target="_blank">Technical Note 32</a></li>
+<li>Parameters:</li>
+</ul>
+<div style="position: relative; left: 40px;">
+<pre>
+         TX     TY     TZ     RX        RY        RZ         D
+         mm     mm     mm     mas       mas       mas        ppb
+Offset   6.7    6.1  -18.5    0.0       0.0       0.0        1.55     
+----------------------------------------------------------------------
+        dTX    dTY    dTZ    dRX       dRY       dRZ        dD
+         mm/y   mm/y   mm/y   mas/y     mas/y     mas/y      ppb/y
+Drift    0.0   -0.6   -1.4    0.0       0.0       0.02        0.01    
+</pre>
+</div>
+<h3>[ITRF93-ITRF00]</h3>
+<i>Last update: 2013-04-18</i>
+<ul>
+<li>epoch: 1988.0</li>
+<li>Reference: Table 4.1 of Chapter 4 of IERS Conventions(2003), <a href="http://www.iers.org/nn_11216/IERS/EN/Publications/TechnicalNotes/tn32.html" target="_blank">Technical Note 32</a></li>
+<li>Parameters:</li>
+</ul>
+<div style="position: relative; left: 40px;">
+<pre>
+         TX     TY     TZ     RX        RY        RZ         D
+         mm     mm     mm     mas       mas       mas        ppb
+Offset  12.7    6.5  -20.9   -0.39      0.8      -1.14       1.95     
+----------------------------------------------------------------------
+        dTX    dTY    dTZ    dRX       dRY       dRZ        dD
+         mm/y   mm/y   mm/y   mas/y     mas/y     mas/y      ppb/y
+Drift   -2.9   -0.2   -0.6   -0.11     -0.19      0.070      0.01     
+</pre>
+</div> 
+<h3>[ITRF92-ITRF00]</h3>
+<i>Last update: 2013-04-18</i>
+<ul>
+<li>epoch: 1988.0</li>
+<li>Reference: Table 4.1 of Chapter 4 of IERS Conventions(2003), <a href="http://www.iers.org/nn_11216/IERS/EN/Publications/TechnicalNotes/tn32.html" target="_blank">Technical Note 32</a></li>
+<li>Parameters:</li>
+</ul>
+<div style="position: relative; left: 40px;">
+<pre>
+         TX     TY     TZ     RX        RY        RZ         D
+         mm     mm     mm     mas       mas       mas        ppb
+Offset  14.7   13.5  -13.9    0.0       0.0      -0.18       0.75     
+----------------------------------------------------------------------
+        dTX    dTY    dTZ    dRX       dRY       dRZ        dD
+         mm/y   mm/y   mm/y   mas/y     mas/y     mas/y      ppb/y
+Drift    0.0   -0.6   -1.4    0.0       0.0       0.02       0.01     
+</pre>
+</div>
+<h3>[ITRF91-ITRF00]</h3>
+<i>Last update: 2013-04-18</i>
+<ul>
+<li>epoch: 1988.0</li>
+<li>Reference: Table 4.1 of Chapter 4 of IERS Conventions(2003), <a href="http://www.iers.org/nn_11216/IERS/EN/Publications/TechnicalNotes/tn32.html" target="_blank">Technical Note 32</a></li>
+<li>Parameters:</li>
+</ul>
+<div style="position: relative; left: 40px;">
+<pre>
+         TX     TY     TZ     RX        RY        RZ         D
+         mm     mm     mm     mas       mas       mas        ppb
+Offset  26.7   27.5  -19.9    0.0       0.0      -0.18       2.15     
+----------------------------------------------------------------------
+        dTX    dTY    dTZ    dRX       dRY       dRZ        dD
+         mm/y   mm/y   mm/y   mas/y     mas/y     mas/y      ppb/y
+Drift    0.0   -0.6   -1.4    0.0       0.0       0.02       0.01     
+</pre>
+</div>
+<h3>[ITRF90-ITRF00]</h3>
+<i>Last update: 2013-04-18</i>
+<ul>
+<li>epoch: 1988.0</li>
+<li>Reference: Table 4.1 of Chapter 4 of IERS Conventions(2003), <a href="http://www.iers.org/nn_11216/IERS/EN/Publications/TechnicalNotes/tn32.html" target="_blank">Technical Note 32</a></li>
+<li>Parameters:</li>
+</ul>
+<div style="position: relative; left: 40px;">
+<pre>
+         TX     TY     TZ     RX        RY        RZ         D
+         mm     mm     mm     mas       mas       mas        ppb
+Offset  24.7   23.5  -35.9    0.0       0.0      -0.18       2.45     
+----------------------------------------------------------------------
+        dTX    dTY    dTZ    dRX       dRY       dRZ        dD
+         mm/y   mm/y   mm/y   mas/y     mas/y     mas/y      ppb/y
+Drift    0.0   -0.6   -1.4    0.0       0.0       0.02       0.01     
+</pre>
+</div>
+<h3>[ITRF89-ITRF00]</h3>
+<i>Last update: 2013-04-18</i>
+<ul>
+<li>epoch: 1988.0</li>
+<li>Reference: Table 4.1 of Chapter 4 of IERS Conventions(2003), <a href="http://www.iers.org/nn_11216/IERS/EN/Publications/TechnicalNotes/tn32.html" target="_blank">Technical Note 32</a></li>
+<li>Parameters:</li>
+</ul>
+<div style="position: relative; left: 40px;">
+<pre>
+         TX     TY     TZ     RX        RY        RZ         D
+         mm     mm     mm     mas       mas       mas        ppb
+Offset  29.7   47.5  -73.9    0.0       0.0      -0.18       5.85     
+----------------------------------------------------------------------
+        dTX    dTY    dTZ    dRX       dRY       dRZ        dD
+         mm/y   mm/y   mm/y   mas/y     mas/y     mas/y      ppb/y
+Drift    0.0   -0.6   -1.4    0.0       0.0       0.02       0.01     
+</pre>
+</div>
+<h3>[ITRF88-ITRF00]</h3>
+<i>Last update: 2013-04-18</i>
+<ul>
+<li>epoch: 1988.0</li>
+<li>Reference: Table 4.1 of Chapter 4 of IERS Conventions(2003), <a href="http://www.iers.org/nn_11216/IERS/EN/Publications/TechnicalNotes/tn32.html" target="_blank">Technical Note 32</a></li>
+<li>Parameters:</li>
+</ul>
+<div style="position: relative; left: 40px;">
+<pre>
+         TX     TY     TZ     RX        RY        RZ         D
+         mm     mm     mm     mas       mas       mas        ppb
+Offset  24.7   11.5  -97.9    0.1       0.0      -0.18       8.95     
+----------------------------------------------------------------------
+        dTX    dTY    dTZ    dRX       dRY       dRZ        dD
+         mm/y   mm/y   mm/y   mas/y     mas/y     mas/y      ppb/y
+Drift    0.0   -0.6   -1.4    0.0       0.0       0.02       0.01     
+</pre>
+</div>
+<a name="2"></a>
+<h2>Transformation from IGS97 [IGS(ITRF97)] to IGS00 [IGS(ITRF2000) o IGS2000 v1]</h2>
+<h3>[IGS00 - IGS97]</h3>
+<i>Last update: 2013-04-18</i>
+<ul>
+<li>epoch: 2001.9199 [02-DEC-2001]</li>
+<li>Reference: <a href="http://igscb.jpl.nasa.gov/mail/igsmail/2001/msg00450.html" target="_blank">IGSMAIL-3605</a></li>
+<li>Parameters:</li>
+</ul>
+<div style="position: relative; left: 40px;">
+<pre>
+         TX     TY     TZ     RX        RY        RZ         D
+         mm     mm     mm     mas       mas       mas        ppb
+Offset  -4.5   -2.4   26.0   -0.024    -0.004    -0.159     -1.451    
+----------------------------------------------------------------------
+        dTX    dTY    dTZ    dRX       dRY       dRZ        dD
+         mm/y   mm/y   mm/y   mas/y     mas/y     mas/y      ppb/y
+Drift    0.4    0.8    1.5    0.004    -0.001    -0.030     -0.012    
+</pre>
+</div>
+<a name="3"></a>
+<h2>Transformation from IGS05 to ITRF05</h2>
+<h3>[ITRF05- IGS05]</h3>
+<i>Last update: 2013-04-18</i>
+<ul>
+<li>epoch: 2000.0</li>
+<li>Reference: Section 2.2 of <a href="http://igscb.jpl.nasa.gov/mail/igsmail/2006/msg00170.html" target="_blank">IGSMAIL-5447</a></li>
+<li>Parameters:</li>
+</ul>
+<div style="position: relative; left: 40px;">
+<pre>
+         TX     TY     TZ     RX        RY        RZ         D
+         mm     mm     mm     mas       mas       mas        ppb
+Offset   1.65  -0.16   2.36  -0.01118  -0.00693  -0.00046   -1.85533  
+----------------------------------------------------------------------
+        dTX    dTY    dTZ    dRX       dRY       dRZ        dD
+         mm/y   mm/y   mm/y   mas/y     mas/y     mas/y      ppb/y
+Drift    0.0    0.0    0.0    0.0       0.0       0.0        0.0      
+</pre>
+</div>
+<a name="4"></a>
+<h2>Transformation from ITRF2005 to ITRF2000</h2>
+<h3>[ITRF00-ITRF05]</h3>
+<i>Last update: 2013-04-18</i>
+<ul>
+<li>epoch: 2000.0</li>
+<li>Reference: <a href="http://itrf.ensg.ign.fr/ITRF_solutions/2005/tp_05-00.php" target="_blank">ITRF website</a></li>
+<li>Parameters:</li>
+</ul>
+<div style="position: relative; left: 40px;">
+<pre>
+         TX     TY     TZ     RX        RY        RZ         D
+         mm     mm     mm     mas       mas       mas        ppb
+Offset   0.1   -0.8   -5.8    0.0       0.0       0.0        0.40     
+----------------------------------------------------------------------
+        dTX    dTY    dTZ    dRX       dRY       dRZ        dD
+         mm/y   mm/y   mm/y   mas/y     mas/y     mas/y      ppb/y
+Drift   -0.2    0.1   -1.8    0.0       0.0       0.0        0.08     
+</pre>
+</div>
+<a name="5"></a>
+<h2>Transformation from IGS05 to IGb00 (IGS2000 v2)</h2>
+<h3>[IGb00 - IGS05]</h3>
+<i>Last update: 2013-04-18</i>
+<ul>
+<li>epoch: 2000.0</li>
+<li>Reference: <a href="http://igscb.jpl.nasa.gov/mail/igsmail/2006/msg00178.html" target="_blank">IGSMAIL-5455</a> (the old one was: Section 4.1 of <a href="" target="_blank">IGSMAIL-5447</a></li>
+<li>Parameters:</li>
+</ul>
+<div style="position: relative; left: 40px;">
+<pre>
+         TX     TY     TZ     RX        RY        RZ         D
+         mm     mm     mm     mas       mas       mas        ppb
+Offset  -0.3   -1.5   -6.1   -0.0070    0.0340   -0.0069     0.7125   
+----------------------------------------------------------------------
+        dTX    dTY    dTZ    dRX       dRY       dRZ        dD
+         mm/y   mm/y   mm/y   mas/y     mas/y     mas/y      ppb/y
+Drift   -0.4    0.7   -1.8    0.0033   -0.0001   -0.0161     0.1748   
+</pre>
+</div>
+<a name="6"></a>
+<h2>Transformation from IGb00 (IGS2000 v2) to IGS00 (IGS2000 v1)</h2>
+<h3>[IGS00 - IGb00]</h3>
+<i>Last update: 2013-04-18</i>
+<ul>
+<li>epoch: 1998.0</li>
+<li>Reference: <a href="http://igscb.jpl.nasa.gov/mail/igsmail/2003/msg00441.html" target="_blank">IGSMAIL-4666</a> </li>
+<li>Parameters:</li>
+</ul>
+<div style="position: relative; left: 40px;">
+<pre>
+         TX     TY     TZ     RX        RY        RZ         D
+         mm     mm     mm     mas       mas       mas        ppb
+Offset  -0.11   0.16   0.15   0.00069   0.00380  -0.00598    0.11586  
+----------------------------------------------------------------------
+        dTX    dTY    dTZ    dRX       dRY       dRZ        dD
+         mm/y   mm/y   mm/y   mas/y     mas/y     mas/y      ppb/y
+Drift   -0.04  -0.22  -0.12  -0.00405  -0.00506   0.00008   -0.05650  
+</pre>
+</div>
+<a name="7"></a>
+<h2>Transformation from IGS05 to IGS08</h2>
+<h3>[IGS08 - IGS05]</h3>
+<i>Last update: 2013-04-18</i>
+<ul>
+<li>epoch: 2005.0</li>
+<li>Reference: <a href="http://igscb.jpl.nasa.gov/pipermail/igsmail/2011/006346.html" target="_blank">IGSMAIL-6354</a></li>
+<li>Parameters:</li>
+</ul>
+<div style="position: relative; left: 40px;">
+<pre>
+         TX     TY     TZ     RX        RY        RZ         D
+         mm     mm     mm     mas       mas       mas        ppb
+Offset   1.5   -0.0    5.8   -0.012     0.014     0.014     -1.04
+----------------------------------------------------------------------
+        dTX    dTY    dTZ    dRX       dRY       dRZ        dD
+         mm/y   mm/y   mm/y   mas/y     mas/y     mas/y      ppb/y
+Drift   -0.1   -0.0   -0.1   -0.002    -0.003     0.001      0.01
+</pre>
+</div>
+<a name="8"></a>
+<h2>Transformation from IGS08 to IGb08</h2>
+<h3>[IGb08 - IGS08]</h3>
+<i>Last update: 2013-04-18</i>
+<ul>
+<li>epoch: 2012.5</li>
+<li>Reference: THIS NULL TRANSFORMATION IMPLEMENTS THE IDENTITY TRASFORMATION</li>
+<li>Parameters:</li>
+</ul>
+<div style="position: relative; left: 40px;">
+<pre>
+         TX     TY     TZ     RX        RY        RZ         D
+         mm     mm     mm     mas       mas       mas        ppb
+Offset   0.0    0.0    0.0    0.0       0.0       0.0        0.0
+----------------------------------------------------------------------
+        dTX    dTY    dTZ    dRX       dRY       dRZ        dD
+         mm/y   mm/y   mm/y   mas/y     mas/y     mas/y      ppb/y
+Drift    0.0    0.0    0.0    0.0       0.0       0.0        0.0
+</pre>
+</div>
+<br/>
+<div align="center"><a href="#top">[ Back to top ]</a></div>

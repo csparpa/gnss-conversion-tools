@@ -1,0 +1,20 @@
+<h1>Usage</h1>
+<p>
+The user must specify the following source parameters:
+<ul>
+<li>Earth-Centered Earth-Fixed Cartesian/Ellipsoidal coordinates triplet ("<code>X coord</code>", "<code>Y coord</code>" and "<code>Z coord</code>")</li>
+<li>Earth-Centered Earth-Fixed Cartesian/Ellipsoidal velocity triplet ("<code>X vel</code>", "<code>Y vel</code>" and "<code>Z vel</code>")</li>
+<li>Reference frame the input coordinates and velocities are given</li>
+<li>Reference epoch ("<code>year</code>" + "<code>DoY</code>" + "<code>SoD</code>") the input coordinates and velocities are referred to</li>
+</ul>
+and the following target parameters:
+<ul>
+<li>target reference frame</li>
+<li>target epoch ("<code>year</code>" + "<code>DoY</code>" + "<code>SoD</code>") for propagating the input coordinates (based on a linear model)</li>
+</ul>
+The tool calculates as output:
+<ul>
+<li>the resulting Earth-Centered Earth-Fixed Cartesian coordinates in the chosen reference frame</li>
+<li>the resulting Earth-Centered Earth-Fixed Ellipsoidal coordinates in the chosen reference frame</li>
+</ul>
+</p>
