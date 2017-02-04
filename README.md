@@ -5,6 +5,9 @@ Easy GNSS coordinates/time conversions via an HTTP API.
 
 This is a legacy project, in memoriam of GPLUS :purple_heart:
 
+# License
+MIT license
+
 
 # Supported reference frames
   - IGb00
