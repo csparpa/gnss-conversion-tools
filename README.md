@@ -72,7 +72,8 @@ The parameters used in the transformations are stored in:
     POST http://localhost/gnss-conversion-tools/api/gps-date-converter.php
 
 POST data:
-        date -->  any of the following formats:
+
+    date -->  any of the following formats:
                      MJD format
                      GSPTime
                      Year and DOY (YYYY.DDD)
@@ -108,6 +109,7 @@ The tool calculates as output:
   - the resulting Earth-Centered Earth-Fixed Ellipsoidal coordinates in the chosen reference frame
 
 Example:
+
     POST http://localhost/gnss-conversion-tools/api/gnss-coordinates-transformation.php
 
 POST data:
